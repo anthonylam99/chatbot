@@ -8,14 +8,13 @@ class BotController extends Controller
 {
     public function bot(Request $request)
     {
-        dd($request->all());
-        // $data = $request->all();
-        // //get the user’s id
-        // $id            = $data["entry"][0]["messaging"][0]["sender"]["id"];
-        // $senderMessage = $data["entry"][0]["messaging"][0]['message'];
-        // if (!empty($senderMessage)) {
-        //     $this->sendTextMessage($id, "Hi buddy");
-        // }
+        $data = $request->all();
+        //get the user’s id
+        $id            = $data["entry"][0]["messaging"][0]["sender"]["id"];
+        $senderMessage = $data["entry"][0]["messaging"][0]['message'];
+        if (!empty($senderMessage)) {
+            $this->sendTextMessage($id, "Hi buddy");
+        }
     }
 
     private function sendTextMessage($recipientId, $messageText)
